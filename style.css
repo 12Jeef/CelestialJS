@@ -1,0 +1,298 @@
+@font-face {
+  font-family: Custom;
+  src: url("/s/font/Nexa-Bold.ttf");
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overscroll-behavior: none;
+}
+
+p {
+  margin: 5px;
+}
+
+#body {
+  position: absolute;
+  top: 0;
+  left:0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+}
+#body * {
+  font-family: Custom, Arial, sans-serif;
+}
+
+.fadein {
+  transition-duration: 0.5s;
+  opacity: 100%;
+  visibility: visible;
+}
+.fadeout {
+  transition-duration: 0.5s;
+  opacity: 0%;
+  visibility: hidden;
+}
+
+.center-col {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+.center-row {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: row;
+}
+
+#MODE-LOADING {
+  z-index: 101;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: xx-large;
+  text-align: center;
+  color: #fff;
+  background: #000;
+}
+
+#TRANSITION {
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+
+.CANVAS {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#CANVAS-DIV {
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#CANVAS-DIV #CANVAS-FILT {
+  z-index: 10;
+  position: absolute;
+  top: -25px;
+  left: -25px;
+  width: calc(100% - 50px);
+  height: calc(100% - 50px);
+  border-color: #f00;
+  border-style: solid;
+  border-width: 50px;
+  filter: blur(100px);
+  opacity: 0;
+}
+
+button {
+  border: 2.5px solid #fff;
+  border-radius: 10px;
+  background: transparent;
+  padding: 5px 50px;
+  color: #fff;
+  transition: 0.5s;
+}
+button:hover {
+  background: #fff;
+  color: #000;
+}
+
+.MODE {
+  z-index: 50;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 100px;
+  width: calc(100% - 200px);
+  height: calc(100% - 200px);
+  background: #00000088;
+  text-align: center;
+}
+.MODE * {
+  display: inline-block;
+  color: #fff;
+}
+
+#MODE-TITLE {
+  
+}
+#MODE-TITLE .title {
+  font-size: 75px;
+}
+#MODE-TITLE .title img {
+  width: auto;
+  height: 75px;
+}
+#MODE-TITLE .subtitle {
+  font-size: 25px;
+  transform: translate(0, -10px);
+}
+
+#MODE-GAME {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+}
+#MODE-GAME .GUI {
+  position: absolute;
+  user-select: none;
+}
+#MODE-GAME .GUI * {
+  display: inline-block;
+}
+#MODE-GAME #GUI-TR {
+  width: calc(100% - 40px);
+  top: 20px;
+  right: 20px;
+  text-align: right;
+}
+#MODE-GAME #GUI-TR .score {
+  margin: 0;
+  width: 100%;
+  font-size: x-large;
+}
+#MODE-GAME #GUI-TR .fps {
+  margin: 0;
+  width: 100%;
+  font-size: x-small;
+  opacity: 50%;
+}
+#MODE-GAME #GUI-TR .wave {
+  margin: 0;
+  width: 100%;
+  font-size: small;
+  opacity: 75%;
+}
+#MODE-GAME #GUI-TM {
+  width: 100%;
+  top: 20px;
+  text-align: center;
+}
+#MODE-GAME #GUI-TL {
+  width: calc(100% - 40px);
+  top: 20px;
+  left: 20px;
+  text-align: left;
+}
+#MODE-GAME #GUI-MR {
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  top: 20px;
+  left: 20px;
+  text-align: right;
+  display: flex;
+}
+#MODE-GAME #GUI-MM {
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  top: 20px;
+  left: 20px;
+  text-align: center;
+  display: flex;
+}
+#MODE-GAME #GUI-ML {
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  top: 20px;
+  left: 20px;
+  text-align: left;
+  display: flex;
+}
+#MODE-GAME #GUI-BR {
+  width: calc(100% - 40px);
+  bottom: 20px;
+  right: 20px;
+  text-align: right;
+}
+#MODE-GAME #GUI-BM {
+  width: 100%;
+  bottom: 20px;
+  text-align: center;
+}
+#MODE-GAME #GUI-BL {
+  width: calc(100% - 40px);
+  bottom: 20px;
+  left: 20px;
+  text-align: left;
+}
+#MODE-GAME #MENU {
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 100px;
+  width: calc(100% - 200px);
+  height: calc(100% - 200px);
+  background: #00000088;
+  text-align: center;
+}
+#MODE-GAME #MENU img {
+  width: 50px;
+  height: auto;
+}
+#MODE-GAME #MENU #UPG-DIV-M {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  text-align: center;
+}
+#MODE-GAME #MENU #UPG-DIV-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  width: calc(33% - 40px);
+  height: calc(100% - 40px);
+}
+#MODE-GAME #MENU #UPG-DIV-2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px;
+  width: calc(33% - 40px);
+  height: calc(100% - 40px);
+  text-align: left;
+}
+#MODE-GAME #MENU #UPG-DIV-2 .name {
+  font-size: xx-large;
+}
+#MODE-GAME #MENU #UPG-DIV-2 .desc {
+  font-size: medium;
+}
+#MODE-GAME #MENU #UPG-DIV-2 .cost {
+  font-size: large;
+}
+#MODE-GAME #MENU #UPG-DIV-2 .bought {
+  font-size: small;
+}
+#MODE-GAME #MENU #UPG-DIV-2 .desc li {
+  display:list-item;
+  margin: 10px 0;
+}
+#MODE-GAME #MENU #UPG-DIV-2 .button {
+  margin: 10px;
+  font-size: large;
+}

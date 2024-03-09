@@ -1,0 +1,92 @@
+<html>
+  <head>
+    <title>Celestial</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/tex/logo.svg">
+  </head>
+  <body oncontextmenu="return false;">
+    <div id="body">
+      <div id="MODE-LOADING" class="center-col">LOADING</div>
+      <div id="TRANSITION"></div>
+      <div id="CANVAS-DIV">
+        <canvas id="CANVAS-BG" class="CANVAS"></canvas>
+        <canvas id="CANVAS-PB" class="CANVAS"></canvas>
+        <canvas id="CANVAS-DEF" class="CANVAS"></canvas>
+        <canvas id="CANVAS-PF" class="CANVAS"></canvas>
+        <canvas id="CANVAS-TEST" class="CANVAS"></canvas>
+        <div id="CANVAS-FILT"></div>
+      </div>
+      <div id="MODE-TITLE" class="MODE center-col">
+        <div class="inner">
+          <p class="title"><img src="/tex/logo2.svg"></img>elestial</p><br>
+          <p class="subtitle">Space Battle</p><br>
+          <button onclick="SwitchMode('GAME')">Play</button>
+        </div>
+      </div>
+      <div id="MODE-GAME" class="MODE">
+        <div class="inner">
+          <div id="GUI-TR" class="GUI">
+            <p class="score"></p><br>
+            <p class="wave"></p><br>
+            <p class="fps"></p><br>
+          </div>
+          <div id="GUI-TM" class="GUI">
+          </div>
+          <div id="GUI-TL" class="GUI">
+            <canvas id="PLYR-HP"></canvas><br>
+            <canvas id="PLYR-ENERGY"></canvas><br>
+            <canvas id="PLYR-CONDELAY"></canvas><br>
+          </div>
+          <div id="GUI-MR" class="GUI center-col">
+          </div>
+          <div id="GUI-MM" class="GUI center-col">
+          </div>
+          <div id="GUI-ML" class="GUI center-col">
+          </div>
+          <div id="GUI-BR" class="GUI">
+          </div>
+          <div id="GUI-BM" class="GUI">
+            <canvas id="PLYR-EXP"></canvas><br>
+          </div>
+          <div id="GUI-BL" class="GUI">
+          </div>
+          <div id="MENU" class="center-col">
+            <div class="inner">
+              <!--img src="/tex/pause.svg" onclick="PLAYGAME()"></img-->
+              <canvas id="CANVAS-UPG" class="CANVAS"></canvas>
+              <div id="UPG-DIV-M">
+                <canvas id="PLYR-EXP-MENU"></canvas>
+              </div>
+              <div id="UPG-DIV-1">
+              </div>
+              <div id="UPG-DIV-2">
+                <br><br><br><br>
+                <p id="UPG-NAME" class="name"></p><br>
+                <ul id="UPG-DESC" class="desc"></ul><br>
+                <p id="UPG-COST" class="cost"></p><br>
+                <p id="UPG-BOUGHT" class="bought"></p><br>
+                <button id="UPG-BUY" class="button">Buy</button><br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="MODE-DEAD" class="MODE center-col">
+        <div class="inner">
+          
+        </div>
+      </div>
+      <script>
+        // const texturenames = {{ texturenames|safe }};
+        // const updateversion = {{ updateversion|safe }};
+		const texturenames = ['a_3', 'a_2', 'a_1', 'hp_b3', 'hp_b2', 'hp_b1', 'hp_b4', 'enmy_basic', 'enmy_glider', 'enmy_overseer', 'enmy_drone', 'enmy_tank', 'enmy_kronos', 'enmy_kronos_drone', 'enmy_kronos_shard', 'enmy_saw_spitter', 'enmy_saw_bullet', 'enmy_grinder', 'enmy_cameo_grinder', 'enmy_warship', 'enmy_asteroid_tanker', 'enmy_asteroid_tank', 'enmy_black_hole', 'enmy_gunner_serpent_h', 'enmy_gunner_serpent_b', 'enmy_gunner_serpent_t', 'enmy_bomber', 'enmy_bomb_1', 'enmy_bomb_2', 'enmy_aries', 'enmy_celestial_1', 'enmy_celestial_2', 'enmy_celestial_3', 'enmy_celestial_4', 'pause', 'play', 'logo2', 'logo', 'plyr', 'plyr_plyr', 'plyr_sh', 'enmy_serpent_t', 'enmy_serpent_b', 'enmy_serpent_h', 'enmy_laser_o', 'enmy_laser', 'enmy_healer_drone', 'enmy_vulcan_drone', 'enmy_vulcan', 'enmy_p2', 'enmy_p1', 'plyr_p2', 'plyr_p1', 'enmy_electro', 'plyr_shield', 'enmy_shield', 'plyr_p3', 'enmy_p3', 'plyr_missile', 'enmy_missile', 'upgrades/u_missile', 'upgrades/u_disease', 'upgrades/u_fireball', 'upgrades/u_explode', 'upgrades/u_poison', 'upgrades/u_stun', 'upgrades/u_blast', 'upgrades/u_bullet_dmg', 'upgrades/u_bullet_spd', 'upgrades/u_railgun', 'upgrades/u_spread', 'upgrades/u_triplet', 'upgrades/u_twin', 'upgrades/u_reload', 'upgrades/u_sh_electro', 'upgrades/u_sh_x3', 'upgrades/u_sh', 'upgrades/u_immunity', 'upgrades/u_heal', 'upgrades/u_hp', 'upgrades/u_mdmg', 'upgrades/u_dash', 'upgrades/u_mheal', 'upgrades/u_mresistance', 'upgrades/u_menergy', 'upgrades/u_aftershock', 'upgrades/u_speed', 'upgrades/u_allies', 'upgrades/u_drone', 'upgrades/u', 'upgrades/u_turret', 'upgrades/u_o_drone', 'upgrades/u_ttwin', 'upgrades/u_ttriplet', 'upgrades/u_bord', 'upgrades/u_cdmg', 'upgrades/u_chp', 'upgrades/u_tview', 'upgrades/u_view', 'enmy_turret_base', 'enmy_turret_6_1', 'enmy_turret_5_1', 'enmy_turret_4_1', 'enmy_turret_3_2', 'enmy_turret_3_1', 'enmy_turret_2_4', 'enmy_turret_2_3', 'enmy_turret_2_2', 'enmy_turret_2_1', 'enmy_turret_1_4', 'enmy_turret_1_3', 'enmy_turret_1_2', 'enmy_turret_1_1', 'enmy_turret', 'enmy_orca'];
+		const updateversion = 0;
+      </script>
+      <script src="/canvas.js"></script>
+      <script src="/collision.js"></script>
+      <script src="/enemies.js"></script>
+      <script src="/upgrades.js"></script>
+      <script src="/main.js"></script>
+    </div>
+  </body>
+</html>
