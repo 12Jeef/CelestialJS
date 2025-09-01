@@ -3,7 +3,7 @@ function playsound(name, pos, vol=1) { return; game.sounds.push(new Sound(name, 
 class Sound {
   constructor(name, pos, vol=1) {
     // this.aud = new Audio("/s/aud/"+name+".wav");
-	  this.aud = new Audio("/aud/"+name+".wav");
+	  this.aud = new Audio("aud/"+name+".wav");
     this.aud.volume = 0;
     this.aud.play();
 
@@ -64,7 +64,7 @@ const textures = {};
 texturenames.forEach(function(name) {
   const image = new Image();
   // image.src = "/s/tex/" + name + ".svg";
-  image.src = "/tex/" + name + ".svg";
+  image.src = "tex/" + name + ".svg";
   textures[name] = image;
 });
 
